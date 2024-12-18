@@ -7,3 +7,15 @@ This Python script converts an image into ASCII art by representing the image us
 - Converts an image (only JPG, PNG) into ASCII art.
 - Customizes the size of the ASCII art output by setting the maximum height and the character width-to-height ratio.
 - Saves the generated ASCII art as a `.txt` file.
+
+## Requirements
+
+- Python 3.x
+- Pillow library (for image processing)
+
+### Install Dependencies
+
+You can install the required dependencies by running:
+
+```bash
+pip install -r requirements.txt
