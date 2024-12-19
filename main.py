@@ -1,9 +1,16 @@
+# The comments and explanations here are for my own reference
+
+# PIL is used for image processing
+# The Image module allows loading, manipulating, and saving images.
 from PIL import Image
 import argparse
 
-# Define greyscale mappings
+# Defining the characters used to represent brightness levels in the image
 GREYSCALE = list(" -.':rLIVRQ")  # 11 tonal ranges of 24 pixels each
 
+# image file - path to image file
+# max height - height of the ASCII art (in rows of characters)
+# char_width_height_ratio 
 def image_to_ascii(image_file, max_height, char_width_height_ratio):
     try:
         # Open and convert the image to greyscale
@@ -16,6 +23,7 @@ def image_to_ascii(image_file, max_height, char_width_height_ratio):
     width, height = img.size
     new_width = int(width / height * max_height * char_width_height_ratio)
     new_size = (new_width, max_height)
+    # using the Lanczos filter, a high-quality algorithm for resizing images, especially when downscaling (reducing size)
     img = img.resize(new_size, Image.Resampling.LANCZOS)
 
     # Generate ASCII art
@@ -36,6 +44,7 @@ def image_to_ascii(image_file, max_height, char_width_height_ratio):
         print(f"Error writing to file: {e}")
 
 if __name__ == "__main__":
+    # Describing the script and defining the command-line arguments
     parser = argparse.ArgumentParser(description="Convert an image to ASCII art.")
     parser.add_argument("image_file", help="Path to the input image file.")
     parser.add_argument("max_height", type=int, help="Maximum height of the ASCII art in characters.")
