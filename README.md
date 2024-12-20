@@ -35,6 +35,20 @@ Sample Command:
 pyhton3 main.py piplup.png 40 2.5
 ```
 
+## Steps to get an ASCII Image
+
+### 1. Defining Grayscale Mapping
+
+### 2. Converting Image to Grayscale
+
+### 3. Calculating Aspect Ratio
+
+### 4. Resizing Image
+
+### 5. Generate ASCII Art
+
+### 6. Save to .txt file
+
 ### Sample Output:
 
 <img width="810" alt="Screenshot 2024-12-18 at 11 09 19 PM" src="https://github.com/user-attachments/assets/c1f10d8e-d6d4-4d1b-8a9e-28b58875ab6d" />
