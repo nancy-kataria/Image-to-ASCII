@@ -6,7 +6,8 @@ from PIL import Image
 import argparse
 
 # Defining the characters used to represent brightness levels in the image
-GREYSCALE = list(" -.':rLIVRQ")  # 11 tonal ranges of 24 pixels each
+GREYSCALE = list("QRVILr:'.- ")  # 11 tonal ranges of 24 pixels each
+# recent changes made : changed " -.':rLIVRQ" to "QRVILr:'.- " reversed it, so that black color is highlighted most. Creating an inverted image
 
 # image file - path to image file
 # max height - height of the ASCII art (in rows of characters)
