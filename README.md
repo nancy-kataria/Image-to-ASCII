@@ -57,6 +57,14 @@ Create a new text file with the same name as the input image but with a .txt ext
 
 ### Sample Output:
 
+Sample 1:
+
 <img width="810" alt="Screenshot 2024-12-18 at 11 09 19 PM" src="https://github.com/user-attachments/assets/c1f10d8e-d6d4-4d1b-8a9e-28b58875ab6d" />
+
+
+Sample 2:
+
+<img width="673" alt="Screenshot 2025-01-11 at 8 34 40 PM" src="https://github.com/user-attachments/assets/81ff974d-6fb9-402b-aa69-eb697a9d6e82" />
+
 
 Learn More about Images and its conversion to ASCII from the file **MoreInfo.md**
