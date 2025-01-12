@@ -26,13 +26,13 @@ pip install -r requirements.txt
 Use Command:
 
 ```bash
-pyhton3 main.py path-to-file maximum-height char-width-to-height-ratio
+python3 main.py path-to-file maximum-height char-width-to-height-ratio
 ```
 
 Sample Command:
 
 ```bash
-pyhton3 main.py piplup.png 40 2.5
+python3 main.py piplup.png 40 2.5
 ```
 
 ## Steps to get an ASCII Image
