@@ -10,8 +10,8 @@ GREYSCALE = list("QRVILr:'.- ")  # 11 tonal ranges of 24 pixels each
 # recent changes made : changed " -.':rLIVRQ" to "QRVILr:'.- " reversed it, so that black color is highlighted most. Creating an inverted image
 
 # image file - path to image file
-# max height - height of the ASCII art (in rows of characters)
-# char_width_height_ratio 
+# max height - height of the ASCII art (in rows of characters, specified by the user.)
+# char_width_height_ratio - since characters are not square, this compensates for their shape
 def image_to_ascii(image_file, max_height, char_width_height_ratio):
     try:
         # Open and convert the image to greyscale
@@ -21,7 +21,10 @@ def image_to_ascii(image_file, max_height, char_width_height_ratio):
         return
     
     # Resize the image while maintaining the aspect ratio
+
+    # Extracts the original dimensions, used to calculate the new size that will preserve the aspect ratio.
     width, height = img.size
+    # Calculating the new width of the image in characters.
     new_width = int(width / height * max_height * char_width_height_ratio)
     new_size = (new_width, max_height)
     # using the Lanczos filter, a high-quality algorithm for resizing images, especially when downscaling (reducing size)
@@ -29,10 +32,20 @@ def image_to_ascii(image_file, max_height, char_width_height_ratio):
 
     # Generate ASCII art
     ascii_art = ""
+
+    # for every row, print all columns
     for y in range(img.height):
         for x in range(img.width):
+            # calculating the brightness (luminance) of the pixel at position (x, y).
+            # getPixel(x,y) - Retrieves the greyscale brightness value of the pixel, ranges 0-255
             lum = 255 - img.getpixel((x, y))
+
+            # Mapping the luminance to a character in the GREYSCALE list
+
+            # we have 11 grayscale characters, each character repreesents a range of 256 / 11 ≈ 23 brightness levels
             ascii_art += GREYSCALE[min(lum // (256 // len(GREYSCALE)), len(GREYSCALE) - 1)]
+
+        # move to next row
         ascii_art += "\n"
 
     # Save ASCII art to a file
