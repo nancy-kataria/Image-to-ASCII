@@ -40,10 +40,13 @@ def image_to_ascii(image_file, max_height, char_width_height_ratio):
             # getPixel(x,y) - Retrieves the greyscale brightness value of the pixel, ranges 0-255
             lum = 255 - img.getpixel((x, y))
 
+            # we have 11 grayscale characters, each character represents a range of 256 / 11 ≈ 23 brightness levels
+            brightness_levels = 256 // len(GREYSCALE)
+
             # Mapping the luminance to a character in the GREYSCALE list
 
-            # we have 11 grayscale characters, each character repreesents a range of 256 / 11 ≈ 23 brightness levels
-            ascii_art += GREYSCALE[min(lum // (256 // len(GREYSCALE)), len(GREYSCALE) - 1)]
+            # we find the use the minimum index to ensure that index is within bounds 0 - 11
+            ascii_art += GREYSCALE[min(lum // brightness_levels, len(GREYSCALE) - 1)]
 
         # move to next row
         ascii_art += "\n"
